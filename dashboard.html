@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
+    <link rel="icon" href="./assets/images/logoo.png" />
+    <title>Dashboard | Peduli Diri</title>
+    <!-- link css ,icon dan animasi gerak -->
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" />
+  </head>
+  <body>
+    <!-- div terluar -->
+    <div class="d-wrapper">
+      <!-- web bagian kiri -->
+      <div class="left" id="image">
+        <!-- image -->
+        <img onclick="showTab('home')" class="img animate__animated animate__pulse animate__infinite" src="./assets/images/logoo.png" alt="logo" id="img" />
+        <!-- buat nama user baru dibawah foto/image -->
+        <h3><span id="user" class="nama_user_baru"></span></h3>
+        <!-- buat toggle untuk mode dark and light -->
+        <div class="lampu">
+          <input type="checkbox" class="checkbox" id="chk" />
+          <label class="label" for="chk">
+            <div class="ball"></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- web bagian kanan -->
+      <div class="right">
+        <!-- buat judul(nama aplikasi web nya) -->
+        <h1 class="title animate__animated animate__bounceInDown animate__delay-0.5s" id="judul">Peduli Diri</h1>
+        <h3 class="sub-title animate__animated animate__bounceInUp animate__delay-0.5s">Catatan Perjalanan</h3>
+        <!-- buat navbar -->
+        <ul class="menu-wrapper">
+          <li class="menu-item animate__animated animate__slideInRight animate__delay-0.5s" onclick="showTab('home')">Home</li>
+          <li class="menu-item animate__animated animate__slideInDown animate__delay-0.5s" onclick="showTab('catatan')">Catatan Perjalanan</li>
+          <li class="menu-item animate__animated animate__slideInUp animate__delay-0.5s" onclick="showTab('isiData')">Isi Data</li>
+          <li class="menu-item animate__animated animate__slideInLeft animate__delay-0.5s" onclick="logout()">Logout</li>
+        </ul>
+        <!-- batas akhir navbar -->
+        <!-- ini adalah tampilan selamat datang (bagian pertama) -->
+        <div class="item-id jumbotron-wrapper">
+          <div class="jumbotron animate__animated animate__jackInTheBox animate__delay-0.5s" data-aos="zoom-in-up">
+            <h3 class="description">Selamat Datang <span id="isLoggedinName" class="nama_user"></span> di Aplikasi Peduli Diri</h3>
+          </div>
+          <button class="btn animate__animated animate__swing animate__delay-0.5s" onclick="showTab('isiData')">Isi Catatan Perjalanan</button>
+        </div>
+        <!-- ini batas tampilan selamat datang -->
+        <!-- bagian ke 2 -->
+        <div class="item-id hidden table-wrapper">
+          <!-- buat struktur agar bisa mengurutkan isi dari catatan perjalanan -->
+          <div class="table-header animate__animated animate__jackInTheBox animate__delay-0.5s">
+            <span class="table-header-text">Urutkan Berdasarkan</span>
+            <select title="abc" class="table-header-select" id="selectSorting">
+              <option class="putih">-- Pilih --</option>
+              <option class="putih" value="tanggal">Tanggal</option>
+              <option class="putih" value="waktu">Waktu</option>
+              <option class="putih" value="lokasi">Lokasi</option>
+              <option class="putih" value="suhu">Suhu Tubuh</option>
+            </select>
+            <button class="btn" onclick="urutkanTabel()">Urutkan</button>
+          </div>
+          <!-- batas stuktur -->
+          <!-- buat table isi catatan perjalanan -->
+          <div class="table-body animate__animated animate__zoomInDown animate__delay-0.5s">
+            <!-- fetch data catatan perjalanan ke table menggunakan api dari backend -->
+            <table id="dataFromApi"></table>
+            <button class="button btn-table" onclick="showTab('isiData')">Isi Catatan Perjalanan</button>
+          </div>
+        </div>
+        <!-- batas ke 2 -->
+        <!-- ini adalah tampilan untuk mengisi data catatan perjalanan -->
+        <div class="item-id hidden jumbotron-wrapper">
+          <div class="jumbotron content-center animate__animated animate__jackInTheBox animate__delay-0.5s">
+            <div class="dashboard-form-wrapper">
+              <span>Tanggal</span>
+              <input title="abc" type="date" name="" id="tanggal" class="d-form-input" required />
+            </div>
+            <div class="dashboard-form-wrapper">
+              <span>Jam</span>
+              <input title="abc" type="time" name="" id="jam" class="d-form-input" required />
+            </div>
+            <div class="dashboard-form-wrapper">
+              <span>Lokasi yang dikunjungi</span>
+              <input title="abc" type="text" name="" id="lokasi" class="d-form-input" required />
+            </div>
+            <div class="dashboard-form-wrapper">
+              <span>Suhu Tubuh</span>
+              <input title="abc" type="text" name="" id="suhu" class="d-form-input" required />
+            </div>
+            <div class="dashboard-form-wrapper button-d-form">
+              <button class="button btn-table" onclick="isiCatatan(event)">Simpan</button>
+            </div>
+          </div>
+        </div>
+        <!-- batas isi data -->
+      </div>
+    </div>
+    <!-- javascript -->
+    <script src="navbar.js"></script>
+    <script src="getapi.js"></script>
+    <script src="isicatatan.js"></script>
+    <script src="urutkantabel.js"></script>
+    <script src="toggle.js"></script>
+    <script src="logout.js"></script>
+  </body>
+  <footer>
+    <div class="d-footer">
+      <p class="love">Created with <i class="bi bi-heart-fill"></i> by <a href="https://www.instagram.com/albilal_.b" class="nama-ig">Albilal Bintang Iskandar</a></p>
+    </div>
+  </footer>
+</html>

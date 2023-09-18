@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
+    <link rel="icon" href="./assets/images/logoo.png" />
+    <title>Login | Peduli Diri</title>
+    <!-- link css ,icon dan animasi gerak -->
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <!-- buat form login dan saya pengguna baru -->
+        <form class="form-container" action="" method="post">
+          <!-- image -->
+          <img class="image animate__animated animate__pulse animate__infinite" src="./assets/images/logoo.png" alt="logorpl" />
+          <div class="input-container animate__animated animate__lightSpeedInRight animate__delay-0.5s">
+            <!-- icon themes -->
+            <i class="fa fa-user icon"></i>
+            <!-- form input nik -->
+            <input class="input-form" type="number" name="NIK" placeholder="NIK" id="nik" data-maxlength="16" oninput="this.value=this.value.slice(0,this.dataset.maxlength)" required />
+          </div>
+          <div class="input-container animate__animated animate__lightSpeedInLeft animate__delay-0.5s">
+            <!-- icon themes -->
+            <i class="fa fa-user icon"></i>
+            <!-- form input nama lengkap -->
+            <input class="input-form" type="text" name="Nama" placeholder="Nama Lengkap" id="nama_lengkap" required />
+          </div>
+          <div class="kotak-login animate__animated animate__bounce animate__delay-0.5s">
+            <!-- button saya pengguna baru atau daftar -->
+            <a class="btn" onclick="handleSubmit(event, 'daftar')">Saya Pengguna Baru</a>
+            <!-- button login -->
+            <button class="btn" onclick="handleSubmit(event, 'login')">Masuk</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- javascript -->
+    <script src="login.js"></script>
+  </body>
+</html>

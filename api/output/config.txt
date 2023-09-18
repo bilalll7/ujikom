@@ -1,0 +1,41 @@
+V-001|lalisa
+V-002|salwajelita
+w-189|salwajelita
+1|1
+V-0009|vuvu
+V-0007|vava
+2|2
+3|3
+4|4
+V-00098|Melisa
+7|7
+8|8
+9|9
+6|6
+11|11
+12|12
+13|13
+14|14
+15|15
+16|16
+V-999|Albilal Bintang Iskandar
+77|fadhil
+78|duta
+786|lalisa
+6578|fadli
+w-990|vivi
+909|Steven
+123|ucup
+8900|bibi
+112345|jojon
+1234567|joji
+V-179|Salwa Jelita
+V-180|Lalisa Putri
+44|44
+T-999|Iskandar Bintang Albilal
+V-111|Lallisa Putri Kusuma
+V-666|Testing
+0099|Albilal Bintang
+6767|test
+8928198|Udan
+763716731|Uhuhuhuh
